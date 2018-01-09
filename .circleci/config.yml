@@ -13,6 +13,13 @@ jobs:
       - checkout
       - restore_cache:
           key: v2-dependencies-{{ checksum "yarn.lock" }}
+      # Print Version Info
+      - run:
+          name: Version Info
+          command: |
+            node --version \
+              && yarn --version \
+              && git --version
       # Install dependencies
       - run: yarn install --frozen-lockfile --non-interactive
       - save_cache:
