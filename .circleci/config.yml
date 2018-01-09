@@ -27,7 +27,8 @@ jobs:
           paths:
             - "node_modules"
       # Run the ci build
-      - run: yarn test
+      - run: yarn build
+      - run: xvfb-run yarn test
       # Store artefacts on circle
       - store_artifacts:
           path: ~/repo/dist
