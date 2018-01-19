@@ -1,11 +1,17 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { DemoModule } from './third-party-message-bus/demo.module';
+import { ThirdPartyMessageBusModule } from './third-party-message-bus/third-party-message-bus.module';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent
       ],
+      imports: [
+        DemoModule,
+        ThirdPartyMessageBusModule.forRoot()
+      ]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
